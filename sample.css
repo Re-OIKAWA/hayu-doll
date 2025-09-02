@@ -1,0 +1,173 @@
+/* 基本スタイル */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  /* 変更点：ピンクと白基調のグラデーション */
+  background: linear-gradient(45deg, #ffb6c1, #ffffff, #fff0f5);
+}
+
+/* ヘッダー */
+header {
+  background: linear-gradient(45deg, #ff6ec7, #ff9a9e);
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 80px; /* ロゴのサイズ */
+}
+
+.site-title {
+  flex: 1;
+  text-align: center;
+  color: white;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav a:hover {
+  color: #ffe1f0;
+  transform: translateY(-3px);
+}
+
+/* セクション */
+section {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 60px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0; /* 最初は非表示 */
+  transform: translateY(40px) scale(0.9);
+  transition: all 0.7s ease-out;
+    /* 背景を透過させると、背景画像が見えるようになります */
+  background: rgba(255, 255, 255, 0.8);
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* プロフィール画像 */
+.profile img {
+  width: 180px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  transition: transform 0.3s;
+}
+
+.profile img:hover {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+/* ナビリンク */
+.links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.links a {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 15px;
+  background: #ff6ec7;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.links a:hover {
+  transform: translateY(-3px);
+}
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* style.css に追記 */
+.parallax-bg {
+  position: fixed; /* 背景を固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 他のコンテンツの下に配置 */
+  background-image: url('your-other-image.jpg'); /* 別のアニメーション用画像 */
+  background-size: cover;
+  background-position: center;
+}
+
+/* JavaScriptでスクロール量に応じてこの要素の transform を変更 */
+
+/* ヘッダーの高さに合わせてメインコンテンツをずらす */
+main {
+  /* ... 既存のスタイル ... */
+  margin-top: 100px; /* ヘッダーの高さに応じて調整 */
+}
+
+/* ヘッダーの下に配置する背景画像コンテナ */
+.main-bg-container {
+  /* ヘッダーの高さ分だけ上から配置 */
+  position: fixed;
+  top: 100px; /* ヘッダーの高さに合わせて調整 */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px); /* 画面の高さからヘッダーの高さを引く */
+  z-index: -1; /* 他のコンテンツの下に配置 */
+
+  /* 背景画像のスタイル */
+  background-image: url('your-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* スムーズなスクロールのためのトランジション */
+  transition: top 0.3s ease-in-out;
+}
+
+/* YouTube動画のレスポンシブ対応 */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9のアスペクト比を維持 */
+  margin-top: 30px; /* 他の要素との間隔 */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* 角を丸くする */
+}
+
+/* プロフィールセクションの画像とテキストを中央揃えにする場合 */
+.profile h2,
+.profile p,
+.profile .links {
+  text-align: center;
+}
